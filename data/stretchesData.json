@@ -1,0 +1,177 @@
+[
+  {
+    "id": 1,
+    "name": "Spinal Twist",
+    "description": "Lay on your back, arms outstretched, and twist gently.",
+    "duration": 300,
+    "video_link": "https://example.com/spinal_twist_video"
+  },
+  {
+    "id": 2,
+    "name": "Neck Tilt",
+    "description": "Sit upright and gently tilt your head from side to side.",
+    "duration": 300,
+    "video_link": "https://example.com/neck_tilt_video"
+  },
+  {
+    "id": 3,
+    "name": "Shoulder Roll",
+    "description": "Roll your shoulders forward and backward.",
+    "duration": 300,
+    "video_link": "https://example.com/shoulder_roll_video"
+  },
+  {
+    "id": 4,
+    "name": "Hamstring Stretch",
+    "description": "Stand and bend forward, reaching for your toes.",
+    "duration": 300,
+    "video_link": "https://example.com/hamstring_video"
+  },
+  {
+    "id": 5,
+    "name": "Quadriceps Stretch",
+    "description": "Stand on one foot and pull the other foot behind you.",
+    "duration": 300,
+    "video_link": "https://example.com/quadriceps_video"
+  },
+  {
+    "id": 6,
+    "name": "Hip Flexor Stretch",
+    "description": "In a lunge position, push your hips forward.",
+    "duration": 300,
+    "video_link": "https://example.com/hip_flexor_video"
+  },
+  {
+    "id": 7,
+    "name": "Side Stretch",
+    "description": "Stand tall and reach one arm over your head, bending to the side.",
+    "duration": 300,
+    "video_link": "https://example.com/side_stretch_video"
+  },
+  {
+    "id": 8,
+    "name": "Chest Opener",
+    "description": "Clasp your hands behind your back and open up your chest.",
+    "duration": 300,
+    "video_link": "https://example.com/chest_opener_video"
+  },
+  {
+    "id": 9,
+    "name": "Wrist Stretch",
+    "description": "Extend one arm and gently pull back on your fingers.",
+    "duration": 300,
+    "video_link": "https://example.com/wrist_stretch_video"
+  },
+  {
+    "id": 10,
+    "name": "Ankle Circles",
+    "description": "Lift one foot and rotate your ankle in circles.",
+    "duration": 300,
+    "video_link": "https://example.com/ankle_circles_video"
+  },
+  {
+    "id": 11,
+    "name": "Cat-Cow Pose",
+    "description": "On all fours, arch and round your back.",
+    "duration": 300,
+    "video_link": "https://example.com/cat_cow_video"
+  },
+  {
+    "id": 12,
+    "name": "Child's Pose",
+    "description": "Kneel down and stretch arms forward on the ground.",
+    "duration": 300,
+    "video_link": "https://example.com/childs_pose_video"
+  },
+  {
+    "id": 13,
+    "name": "Seated Forward Bend",
+    "description": "Sit with legs straight and reach for your toes.",
+    "duration": 300,
+    "video_link": "https://example.com/seated_forward_bend_video"
+  },
+  {
+    "id": 14,
+    "name": "Butterfly Stretch",
+    "description": "Sit down, bring feet together, and push knees down.",
+    "duration": 300,
+    "video_link": "https://example.com/butterfly_stretch_video"
+  },
+  {
+    "id": 15,
+    "name": "Tricep Stretch",
+    "description": "Raise one arm overhead, bend it, and gently push on the elbow.",
+    "duration": 300,
+    "video_link": "https://example.com/tricep_stretch_video"
+  },
+  {
+    "id": 16,
+    "name": "Calf Stretch",
+    "description": "Step one foot back and press heel to the floor.",
+    "duration": 300,
+    "video_link": "https://example.com/calf_stretch_video"
+  },
+  {
+    "id": 17,
+    "name": "Standing Quad Stretch",
+    "description": "Stand on one leg and pull the other foot towards your buttocks.",
+    "duration": 300,
+    "video_link": "https://example.com/standing_quad_video"
+  },
+  {
+    "id": 18,
+    "name": "Cross-body Shoulder Stretch",
+    "description": "Pull one arm across your body and hold it.",
+    "duration": 300,
+    "video_link": "https://example.com/cross_body_shoulder_video"
+  },
+  {
+    "id": 19,
+    "name": "Downward Dog",
+    "description": "From a plank position, push hips up and back.",
+    "duration": 300,
+    "video_link": "https://example.com/downward_dog_video"
+  },
+  {
+    "id": 20,
+    "name": "Cobra Pose",
+    "description": "Lay on your stomach and gently push up with your arms.",
+    "duration": 300,
+    "video_link": "https://example.com/cobra_pose_video"
+  },
+  {
+    "id": 21,
+    "name": "Pigeon Pose",
+    "description": "From all fours, bring one knee forward and stretch.",
+    "duration": 300,
+    "video_link": "https://example.com/pigeon_pose_video"
+  },
+  {
+    "id": 22,
+    "name": "Deep Lunge",
+    "description": "Step one foot forward into a lunge and lean into it.",
+    "duration": 300,
+    "video_link": "https://example.com/deep_lunge_video"
+  },
+  {
+    "id": 23,
+    "name": "Bridge Pose",
+    "description": "Lay on your back, bend knees, and lift hips.",
+    "duration": 300,
+    "video_link": "https://example.com/bridge_pose_video"
+  },
+  {
+    "id": 24,
+    "name": "Seated Spinal Twist",
+    "description": "Sit down, cross one leg over the other and twist.",
+    "duration": 300,
+    "video_link": "https://example.com/seated_spinal_twist_video"
+  },
+  {
+    "id": 25,
+    "name": "Standing Forward Fold",
+    "description": "Stand tall and fold forward from the hips.",
+    "duration": 300,
+    "video_link": "https://example.com/standing_forward_fold_video"
+  }
+]
