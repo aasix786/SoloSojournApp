@@ -4,10 +4,11 @@ import theme from '../theme';
 import { AntDesign } from '@expo/vector-icons';
 import { BottomSheetModal} from '@gorhom/bottom-sheet';
 import StretchesModal from '../components/StretchesModal';
+import { Feather } from '@expo/vector-icons';
 
 const RoutineScreen = ({ route, navigation }) => {
-  const initialStretches = route?.params?.randomStretches || [];
-  const [selectedStretches] = useState(initialStretches);
+
+  const [selectedStretches, setSelectedStretches] = useState([]);
   const [currentStretchIndex, setCurrentStretchIndex] = useState(0);
   const [timeLeft, setTimeLeft] = useState(120);
   const [isTimerRunning, setIsTimerRunning] = useState(false);
@@ -47,6 +48,7 @@ const RoutineScreen = ({ route, navigation }) => {
       setTimeLeft(120)
     }
     else{
+      setIsTimerRunning(false);
       navigation.navigate("Summary");
     }
   };
@@ -62,7 +64,7 @@ const closeBottomSheet = useCallback(() => {
   AddBottomSheetRef.current?.dismiss();
 }, []);
 const handleAddBottomSheet = useCallback((index) => {
-  index != 1 &&
+  index !== 1 &&
   AddBottomSheetRef.current?.dismiss()
 }, []);
   return (
@@ -83,8 +85,7 @@ const handleAddBottomSheet = useCallback((index) => {
         <View style={styles.stretchInfoContainer}>
           <Text style={styles.stretchTitle}>
             {selectedStretches[currentStretchIndex]?.name}
-            {selectedStretches[currentStretchIndex]?.description}
-            {selectedStretches[currentStretchIndex]?.video_link}
+
           </Text>
         </View>
 
@@ -92,9 +93,12 @@ const handleAddBottomSheet = useCallback((index) => {
           <TouchableOpacity style={styles.bottomLeft} onPress={() => {
             console.log("Bottom Info button pressed");
             openBottomSheet()
+            setIsTimerRunning(false);
+
             // setStretchListVisible(true);
           }}>
-            <AntDesign name="infocirlceo" size={24} color="black" />
+            <Feather name="arrow-up-circle" size={30} color="black" />
+
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.bottomRight} onPress={handleNextStretch}>
@@ -122,7 +126,7 @@ const handleAddBottomSheet = useCallback((index) => {
             }} />
           </View>
         </Modal>
-        <StretchesModal modalVisible={modalVisible} setModalVisible={setModalVisible} startTimer={startTimer}/>
+        <StretchesModal modalVisible={modalVisible} setModalVisible={setModalVisible} startTimer={startTimer} setSelectedStretches={setSelectedStretches}/>
         <BottomSheetModal
           ref={AddBottomSheetRef}
           index={1}
@@ -133,24 +137,33 @@ const handleAddBottomSheet = useCallback((index) => {
           enablePanDownToClose={true}
         >
            <View style={{width:"100%", alignItems:"center", paddingVertical:20}}>
-      <Text allowFontScaling={false} style={{fontSize:22, color:"#000", }}>Information</Text>
+      <Text allowFontScaling={false} style={{fontSize:22, color:"#000", }}>How To</Text>
      </View>
      <View style={{width:"100%", backgroundColor: '#fff'}}>
-     <View style={styles.modalContent}>
-            <Text>{selectedStretches[currentStretchIndex]?.name}</Text>
-            <Text>{selectedStretches[currentStretchIndex]?.description}</Text>
-            {selectedStretches[currentStretchIndex]?.video_link && (
-                <Text style={{ color: 'blue' }} onPress={() => Linking.openURL(selectedStretches[currentStretchIndex]?.video_link)}>
-                  Watch Video
-                </Text>
-            )}
+       <View style={styles.modalContent}>
+         <Text style={styles.stretchName}>
+           {selectedStretches[currentStretchIndex]?.name}
+         </Text>
+         <Text style={styles.stretchDescription}>
+           {selectedStretches[currentStretchIndex]?.description}
+         </Text>
+         {selectedStretches[currentStretchIndex]?.video_link && (
+             <Text style={styles.videoLink} onPress={() => Linking.openURL(selectedStretches[currentStretchIndex]?.video_link)}>
+               Watch Video
+             </Text>
+         )}
+
             <View style={{marginTop:20}}>
-            <Button title="Close" onPress={() => {
-              console.log("Close button pressed in the modal");
-              // setStretchListVisible(false);
-              closeBottomSheet()
-             startTimer()
-            }} />
+              <TouchableOpacity
+                  style={{ flexDirection: 'row', alignItems: 'center', padding: 10 }}
+                  onPress={() => {
+                    console.log("Close button pressed in the modal");
+                    closeBottomSheet();
+                    startTimer();
+                  }}>
+                <Feather name="arrow-down-circle" size={24} color="black" />
+
+              </TouchableOpacity>
             </View>
         
           </View>
@@ -182,17 +195,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
     paddingHorizontal: 15,
-    marginTop: 20,
+    marginTop: 200,
   },
   stretchTitle: {
     fontSize: 30,
     color: theme.colors.accent,
-    textAlign: 'center',
-    marginVertical: 20,
+    marginBottom: 30,
+    textAlign: 'center'
   },
   modalContent: {
     width: "100%",
     alignItems: 'center',
+    padding: 15,
   },
   bottomBar: {
     flexDirection: 'row',
@@ -209,6 +223,23 @@ const styles = StyleSheet.create({
   bottomRight: {
     alignSelf: 'flex-end',
     padding: 10,
+  },
+  stretchName: {
+    fontSize: 20,
+    color: theme.colors.primary, // Or whatever the property is named in your theme
+    marginBottom: 10, // Margin for the gap
+  },
+  stretchDescription: {
+    fontSize: 16,
+    color: theme.colors.secondary, // Or whatever the property is named in your theme
+    marginBottom: 10,
+    width: "75%",
+    // Margin for the gap
+  },
+  videoLink: {
+    fontSize: 16,
+    color: theme.colors.accent,
+    fontWeight: 'bold' // Assuming you might have a property for link colors
   },
 });
 

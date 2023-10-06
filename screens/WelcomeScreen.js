@@ -1,40 +1,41 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Button, SafeAreaView, Modal } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  SafeAreaView,
+  TouchableOpacity,
+} from 'react-native';
 import theme from '../theme';
-import stretchesData from '../data/stretchesData.json';
+import {AntDesign} from '@expo/vector-icons';
 
 const WelcomeScreen = ({ navigation }) => {
-  const [randomStretches, setRandomStretches] = useState([]);
-
-  useEffect(() => {
-    // Assuming you want to select five random stretches for the sake of this example.
-    setRandomStretches(selectRandomStretches(stretchesData, 5));
-
-  }, []);
-
-
-
-  const selectRandomStretches = (data, count) => {
-    const shuffled = data.sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, count);
-  };
-
   return (
       <SafeAreaView style={styles.safe}>
         <View style={styles.container}>
-          <Text style={styles.subtitle}>Ready for a refreshing stretch routine?</Text>
-          <Button
-              title="Let's Start"
-              onPress={() => {
-                // Here, pass the randomStretches to the Routine screen
-                navigation.navigate('Routine', { randomStretches: randomStretches });
-              }}
-              color={theme.colors.secondary}
-          />
 
-       
+          <Text style={styles.title}>Solo SoJourn</Text>
+          <Text style={styles.tagline}>Your Ten-Minute Retreat to Rediscover.</Text>
+
+          <Text style={styles.explanation}>
+            Solo SoJourn is your sanctuary in daily chaos, advocating just ten minutes of reflection and stretch.
+          </Text>
+          <Text style={styles.explanation}>
+            It embodies solitary rejuvenation and emphasizes self-care through each mindful moment.
+          </Text>
+
+          <TouchableOpacity style={styles.button} onPress={() => {
+            // Here, pass the randomStretches to the Routine screen
+            navigation.navigate('Routine');
+          }}>
+
+            <AntDesign name="arrowright" size={30} color={theme.colors.primary} />
+          </TouchableOpacity>
+
+
         </View>
       </SafeAreaView>
+
   );
 };
 
@@ -81,7 +82,41 @@ const styles = StyleSheet.create({
   modalText: {
     marginBottom: 15,
     textAlign: "center"
+  },
+  title: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    color: theme.colors.accent, // Assuming this stands out.
+    marginBottom: 10,
+  },
+  tagline: {
+    fontSize: 20,
+    color: theme.colors.secondary,
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  explanation: {
+    marginTop:10,
+    fontSize: 16,
+    color: theme.colors.text,
+    textAlign: 'center',
+    marginBottom: 30,
+    paddingHorizontal: 10, // Adding this to prevent the text from touching the screen edges, especially if the text is longer.
+  },
+  button:{
+    backgroundColor: theme.colors.accent,
+    borderRadius: 50,
+    width: 60,
+    height: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
+    elevation: 5,  // for Android shadow
+    shadowColor: '#000',  // for iOS shadow
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
   }
+
 });
 
 export default WelcomeScreen;
